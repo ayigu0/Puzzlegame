@@ -2,6 +2,7 @@ package ui;
 
 import domain.User;
 import tool.CodeUtil;
+import tool.DataAccess;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,12 +12,9 @@ import java.util.ArrayList;
 
 public class LoginJFrame extends JFrame implements MouseListener, ActionListener {
     public static String default_path = "/Users/peeko/IdeaProjects/puzzlegame/pictures/";
-    public static ArrayList<User> allUsers = new ArrayList<>();
+    public static DataAccess dataAccess = new DataAccess();
+    public static ArrayList<User> allUsers = (ArrayList<User>) dataAccess.getAllUsers();
 
-    static {
-        allUsers.add(new User("peeko", "0225"));
-        allUsers.add(new User("candice", "1204"));
-    }
 
 
     JButton refresh = new JButton();

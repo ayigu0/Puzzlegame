@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 
 import domain.User;
+import tool.DataAccess;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class RegisterJFrame extends JFrame implements ActionListener {
-
+    private DataAccess dataAccess = LoginJFrame.dataAccess;
     static ArrayList<User> reg_user = LoginJFrame.allUsers;
 
 
@@ -136,6 +137,7 @@ public class RegisterJFrame extends JFrame implements ActionListener {
         } else if (e.getSource() == back) {
             System.out.println("返回登陆界面");
             this.setVisible(false);
+            this.dispose();
             new LoginJFrame(RegisterJFrame.reg_user);
             this.dispose();
         }
@@ -174,6 +176,7 @@ public class RegisterJFrame extends JFrame implements ActionListener {
             showDialog("用户已存在！！😖😖😖😖");
         } else {
             RegisterJFrame.reg_user.add(new User(user, password));
+            LoginJFrame.dataAccess.registerUser(user, password);
             this.setVisible(false);
             new LoginJFrame(RegisterJFrame.reg_user);
             this.dispose();
