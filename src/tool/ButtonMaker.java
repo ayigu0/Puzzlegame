@@ -13,16 +13,16 @@ public class ButtonMaker {
     static final String TEXT = "返回";
 
     public static void main(String[] args) throws Exception {
-        String outDir = "/Users/peeko/IdeaProjects/puzzlegame/pictures"; // 输出目录自行修改
+        String outDir = args.length == 0 ? "pictures" : args[0];
         new File(outDir).mkdirs();
 
         // 普通态
         BufferedImage normal = drawButton(false);
-        ImageIO.write(normal, "png", new File(outDir + "btn_fanhui_green.png"));
+        ImageIO.write(normal, "png", new File(outDir, "btn_fanhui_green.png"));
 
         // 按下态
         BufferedImage pressed = drawButton(true);
-        ImageIO.write(pressed, "png", new File(outDir + "btn_fanhui_green_pressed.png"));
+        ImageIO.write(pressed, "png", new File(outDir, "btn_fanhui_green_pressed.png"));
 
         System.out.println("生成完成：btn_fanhui_green.png / btn_fanhui_green_pressed.png");
     }

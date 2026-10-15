@@ -1,0 +1,17 @@
+# Java build output
+out/
+build/
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# macOS metadata
+.DS_Store
+
+# Local accounts, passwords, and scores
+*.ser
+
+# Local logs
+*.log

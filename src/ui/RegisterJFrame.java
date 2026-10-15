@@ -175,7 +175,6 @@ public class RegisterJFrame extends JFrame implements ActionListener {
             System.out.println("用户已经存在");
             showDialog("用户已存在！！😖😖😖😖");
         } else {
-            RegisterJFrame.reg_user.add(new User(user, password));
             LoginJFrame.dataAccess.registerUser(user, password);
             this.setVisible(false);
             new LoginJFrame(RegisterJFrame.reg_user);

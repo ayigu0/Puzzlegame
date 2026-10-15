@@ -11,7 +11,8 @@ import java.util.ArrayList;
 
 
 public class LoginJFrame extends JFrame implements MouseListener, ActionListener {
-    public static String default_path = "/Users/peeko/IdeaProjects/puzzlegame/pictures/";
+    public static String default_path = java.nio.file.Path.of("pictures").toAbsolutePath()
+            + java.io.File.separator;
     public static DataAccess dataAccess = new DataAccess();
     public static ArrayList<User> allUsers = (ArrayList<User>) dataAccess.getAllUsers();
 
@@ -193,8 +194,6 @@ public class LoginJFrame extends JFrame implements MouseListener, ActionListener
 
         // create a new user
         User userInfo = new User(usernameInput, passwordInput);
-        System.out.println("用户输入的用户名为" + usernameInput);
-        System.out.println("用户输入的密码为" + passwordInput);
 
         //check the correctness of username and password
         if (codeInput.length() == 0) {
